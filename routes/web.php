@@ -39,3 +39,35 @@ Route::get("arreglos" , function(){
     echo "<pre>";
 
 } );
+
+Route::get('paises' , function(){
+
+    $paises = [
+        "Colombia" => [
+            "Capital" => "Bogotá",
+            "Moneda" => "Peso",
+            "Población" => 51
+        ],
+        "Perú" => [
+            "Capital" => "Lima",
+            "Moneda" => "Sol",
+            "Población" => 33
+        ],
+        "Paraguay" => [
+            "Capital" => "Asunción",
+            "Moneda" => "Guarani",
+            "Población" => 7
+        ]
+    ];
+
+    //Recorrer el arreglo de paises
+    foreach($paises as $índice => $valor){
+        echo " $índice ";
+        echo "<pre>";
+        echo ($valor["Capital"]);
+        echo "<pre>";
+        echo "<hr />";
+
+    }
+
+});
