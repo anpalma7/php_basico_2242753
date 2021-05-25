@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("variables" , function(){
+Route::get("variables", function () {
     $mensaje = 20;
     //Función nativa de php : analizar el contenido de la
     //variable: tipo de dato, datos contenidos.
@@ -25,22 +25,23 @@ Route::get("variables" , function(){
     echo "<hr />";
     $mensaje = "Hola 2242753";
     var_dump($mensaje);
-} );
+});
 
-Route::get("arreglos" , function(){
+Route::get("arreglos", function () {
     //Definir un arreglos en php
     //Tamaño: número de elementos de arreglos
     //Tamaño del arreglo estudiantes es 3.
-    $estudiantes = [ "AN" => "Ana" ,
-                       2  => "Valería" ,
-                     "JO" => "Jorge" ];
+    $estudiantes = [
+        "AN" => "Ana",
+        2  => "Valería",
+        "JO" => "Jorge"
+    ];
     echo "<pre>";
     print_r($estudiantes);
     echo "<pre>";
+});
 
-} );
-
-Route::get('paises' , function(){
+Route::get('paises', function () {
 
     $paises = [
         "Colombia" => [
@@ -57,17 +58,19 @@ Route::get('paises' , function(){
             "Capital" => "Asunción",
             "Moneda" => "Guarani",
             "Población" => 7
+        ],
+        "Ecuador" => [
+            "Capital" => "Quito",
+            "Moneda" => "Dólar",
+            "Población" => 17
         ]
     ];
 
-    //Recorrer el arreglo de paises
-    foreach($paises as $índice => $valor){
-        echo " $índice ";
-        echo "<pre>";
-        echo ($valor["Capital"]);
-        echo "<pre>";
-        echo "<hr />";
-
-    }
-
+    //Mostrar la vista de los paises.
+    //Llevando el arreglo de paises.
+    return view('paises')->with("naciones", $paises);
 });
+
+Route::get('mostrar_formulario', 'MetabuscadorController@mostrar_formulario');
+
+Route::post('buscar_termino', 'MetabuscadorController@buscar_termino');
