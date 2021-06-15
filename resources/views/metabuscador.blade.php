@@ -17,9 +17,7 @@
         <fieldset>
 
             <!-- Form Name -->
-            
             <legend class="text-center">Realizar busquedas en varios motores</legend>
-            
 
             <!-- Text input-->
             <div class="form-group">
